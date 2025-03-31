@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Difracción de Fraunhofer</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Difracción de Fraunhofer</h1>
+        <h2 id="mainTitle">Difracción de Fraunhofer: Ambas aberturas</h2>
+        
+        <div class="grid-container">
+            <div class="canvas-container">
+                <h3>Plano de Aberturas</h3>
+                <canvas id="aperturesCanvas" height="400"></canvas>
+                <div id="apertureType" class="message-box"></div>
+            </div>
+            
+            <div class="canvas-container">
+                <h3>Patrón de Difracción</h3>
+                <canvas id="diffractionCanvas" height="400"></canvas>
+                <div id="farFieldMessage" class="message-box"></div>
+            </div>
+            
+            <div class="canvas-container full-width">
+                <h3>Interferencia modulada por difracción</h3>
+                <canvas id="intensityChart" height="250"></canvas>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="slider-container">
+                <label for="slider-a">Ancho Rect. [m]:</label>
+                <input type="range" id="slider-a" min="0" max="200e-6" step="1e-6" value="97e-6">
+                <span id="value-a">97.0 μm</span>
+            </div>
+            
+            <div class="slider-container">
+                <label for="slider-b">Alto Rect. [m]:</label>
+                <input type="range" id="slider-b" min="0" max="200e-6" step="1e-6" value="97e-6">
+                <span id="value-b">97.0 μm</span>
+            </div>
+            
+            <div class="slider-container">
+                <label for="slider-R">Radio Circ. [m]:</label>
+                <input type="range" id="slider-R" min="0" max="200e-6" step="1e-6" value="53e-6">
+                <span id="value-R">53.0 μm</span>
+            </div>
+            
+            <div class="slider-container">
+                <label for="slider-D">Distancia D [m]:</label>
+                <input type="range" id="slider-D" min="50e-6" max="500e-6" step="10e-6" value="200e-6">
+                <span id="value-D">200.0 μm</span>
+            </div>
+            
+            <div class="slider-container">
+                <label for="slider-lambda">Longitud de Onda [m]:</label>
+                <input type="range" id="slider-lambda" min="380e-9" max="780e-9" step="1e-9" value="380e-9">
+                <span id="value-lambda">380 nm</span>
+            </div>
+            
+            <div class="slider-container">
+                <label for="slider-L">Distancia D' [m]:</label>
+                <input type="range" id="slider-L" min="0.01" max="5.0" step="0.01" value="1.046">
+                <span id="value-L">1.046 m</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>Simulador de Difracción de Fraunhofer - Andrés Sabogal</footer>
+    
+    <script src="logica.js"></script>
+</body>
+</html>
